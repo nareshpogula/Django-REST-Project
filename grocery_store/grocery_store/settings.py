@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['.vercel.app','127.0.0.1']
 
+CORS_ALLOWED_ORIGINS = [ 'http://localhost:4200', 'http://localhost:5400' ]
+
 
 # Application definition
 
@@ -39,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'products',
-    'orders'
+    'orders',
+    'corsheaders'
     
 ]
 
@@ -51,6 +54,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
 ]
 
 ROOT_URLCONF = 'grocery_store.urls'
@@ -58,7 +63,7 @@ ROOT_URLCONF = 'grocery_store.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR/'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

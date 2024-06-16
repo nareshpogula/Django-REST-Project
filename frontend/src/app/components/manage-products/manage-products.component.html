@@ -1,0 +1,127 @@
+<header>
+    <div class="container">
+        <h1>Online Grocery Store</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Cart</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div>
+
+        <!-- <div class="submit-form">
+      
+          <div *ngIf="submitted">
+            <h4>Product was submitted successfully!</h4>
+            <button class="btn btn-success" (click)="newProduct()">Add</button>
+          </div>
+        </div>
+      </div>
+
+    <div> -->
+    
+    <div *ngIf="addButton">
+        <button (click)="addProduct()" class="btn btn-success">Add Product</button>
+    </div>
+    <div class="submit-form">
+        <div *ngIf="updateForm || productForm">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Product ID</td>
+                        <td><input
+                            type="number"
+                            name="product_id"
+                            class="form-control"
+                            id="product_id"
+                            [(ngModel)]="prod.product_id"
+                            required /> </td>
+                    </tr>
+      
+                    <tr>
+                        <td>Product Name</td>
+                        <td><input
+                            type="text"
+                            name="product_name"
+                            class="form-control"
+                            id="product_name"
+                            [(ngModel)]="prod.product_name"
+                            required/>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td>Price Per Unit</td>
+                        <td><input
+                            type="number"
+                            name="price_per_unit"
+                            class="form-control"
+                            id="price_per_unit"
+                            [(ngModel)]="prod.price_per_unit"
+                            required />
+                        </td>
+                    </tr>
+            
+                    <tr>
+                        <td>UOM</td>
+                        <td><input
+                            type="number"
+                            name="uom" 
+                            class="form-control"
+                            id="uom"
+                            [(ngModel)]="prod.uom"
+                            required/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td >
+                            <span><button *ngIf="updateForm" class="btn btn-success" (click)="updateProduct(prod)">Update</button>
+                            </span><span><button *ngIf="productForm" (click)="saveProduct()" class="btn btn-success">Submit</button>   
+                            </span>
+                            </td>
+                        <td>
+                            <button (click)="clear()" class="btn btn-success">Clear</button> 
+                        </td>
+                    </tr>
+                </tbody>
+            </table> 
+        </div>
+        <div *ngIf="submitted || updated">
+            <h4 *ngIf="submitted">Product was submitted successfully!</h4>
+            <h4 *ngIf="updated">Product was updated successfully!</h4>
+            <button class="btn btn-success" (click)="newProduct()">Add</button>
+          </div>
+        </div>
+      </div>
+
+
+    <div>
+        <table  id="customers">
+         <tbody>
+            <tr>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Unit ID</th>
+                <th>Unit Name</th>
+                <th>Action</th>
+            </tr>
+            
+         <tr *ngFor="let product of products; let index = index">
+            <td>{{ product["product_id"] }}</td>
+            <td>{{ product["product_name"] }}</td>
+            <td>{{ product["price_per_unit"]}}</td>
+            <td>{{ product["uom"]["uom_id"]}}</td>
+            <td>{{ product["uom"]["uom_name"]}}</td>
+            <td><button class="badge badge-success mb-2" (click) ="update(product)"> Update</button> <button class="badge badge-danger mr-2" (click)="deleteProduct(product)" > Delete</button></td>
+         </tr>
+        </tbody>
+          
+        </table>
+    </div>
+
