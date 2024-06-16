@@ -9,7 +9,9 @@ import { Products } from '../models/products.model';
 })
 export class ApiService {
 
-  baseurl = 'http://127.0.0.1:8000'
+  // baseurl = 'http://127.0.0.1:8000'
+  baseurl = 'https://grocery-store-django-rest.vercel.app'
+
   httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
 
   constructor(private http: HttpClient) { }
