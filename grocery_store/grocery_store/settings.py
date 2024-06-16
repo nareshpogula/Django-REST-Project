@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['.vercel.app','127.0.0.1']
 
-CORS_ALLOWED_ORIGINS = [ 'http://localhost:4200', 'http://localhost:5400', ]
+CORS_ALLOWED_ORIGINS = [ 'http://localhost:4200', 'http://localhost:5400', 'https://grocery-store-django-rest.vercel.app']
 
 
 # Application definition
