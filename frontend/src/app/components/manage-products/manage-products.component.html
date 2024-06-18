@@ -28,6 +28,9 @@
     <div *ngIf="addButton">
         <button (click)="addProduct()" class="btn btn-success">Add Product</button>
     </div>
+    <div>
+    <button class="btn btn-success" (click)="getAllProducts">Refresh</button>
+    </div>
     <div class="submit-form">
         <div *ngIf="updateForm || productForm">
             <table>

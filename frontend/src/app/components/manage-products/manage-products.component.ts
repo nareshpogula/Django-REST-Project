@@ -23,6 +23,7 @@ productForm = false;
 addButton = true;
 
  constructor(private api: ApiService) {
+  
   this.getAllProducts();
 
  }
@@ -46,6 +47,7 @@ addButton = true;
       next: (res) => {
         console.log(res);
         // this.router.navigate(['/tutorials']);
+        this.getAllProducts()
       },
       error: (e) => console.error(e)
     });
@@ -75,6 +77,7 @@ updateProduct(product:Products): void {
   .subscribe({
     next: (res) => {
       console.log(res);
+      this.getAllProducts()
 
     },
     error: (e) => console.error(e)
@@ -96,6 +99,7 @@ saveProduct(): void {
       next: (res) => {
         this.submitted = true;
         console.log(res);
+        this.getAllProducts()
       },
       error: (e) => {
         this.productForm = true;
