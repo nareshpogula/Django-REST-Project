@@ -17,6 +17,15 @@ class Products(models.Model):
 
     def __str__(self):
         return self.product_name
+    
+    # def __iter__(self):
+    #     # return iter(self._internal_dict)
+    #     return [ self.product_id, 
+    #              self.product_name, 
+    #              self.uom, 
+    #              self.price_per_unit, 
+    #              ]
+    #     return [field.value_to_string(self) for field in Products._meta.fields]
     class Meta:
         verbose_name = 'product name'
 

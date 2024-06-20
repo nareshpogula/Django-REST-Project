@@ -11,13 +11,19 @@ import { provideRouter, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ApiService } from './services/api.service';
 import { HttpClient, provideHttpClient, withFetch } from '@angular/common/http';
+import { OrdersComponent } from './components/orders/orders.component';
+import { CustomerDetailsComponent } from './components/customer-details/customer-details.component';
+import { OrderDetailsComponent } from './components/order-details/order-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ErrorComponent,
-    ManageProductsComponent
+    ManageProductsComponent,
+    OrdersComponent,
+    CustomerDetailsComponent,
+    OrderDetailsComponent
   ],
   imports: [
     BrowserModule,

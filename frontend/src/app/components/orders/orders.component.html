@@ -1,0 +1,36 @@
+
+<header>
+    <div class="container">
+        <h1>Online Grocery Store</h1>
+       
+            <div><a class="links" href="#">Home </a></div>
+            <div><a class="links" [routerLink]="['/products']">Products</a></div>
+            <div><a class="links" [routerLink]="['/customers']">Customer Details</a></div>
+            <div><a class="links" href="#">Contact</a></div>
+ 
+    </div>
+</header>
+
+<div>
+    <table  id="customers">
+     <tbody>
+        <tr>
+            <th>OrderID</th>
+            <th>Customer Name</th>
+            <th>Total</th>
+            <th>Date Name</th>
+
+        </tr>
+        
+     <tr *ngFor="let order of orders; let index = index">
+        <td>{{ order["order_id"] }}</td>
+        <td>{{ order["customer_name"] }}</td>
+        <td>{{ order["total"]}}</td>
+        <td>{{ order["datetime"]}}</td>
+        
+        <!-- <td><button class="btn" (click) ="update(product)"> Update</button> <button class="btn buttonR" (click)="deleteProduct(product)" > Delete</button></td> -->
+     </tr>
+    </tbody>
+      
+    </table>
+</div>

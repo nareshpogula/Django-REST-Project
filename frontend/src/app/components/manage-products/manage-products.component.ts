@@ -34,6 +34,7 @@ addButton = true;
         next: (data) => {
         this.products =data.data;
         console.log(this.products);
+        console.log("refresh");
       },
       
       error: (e) => console.error(e)

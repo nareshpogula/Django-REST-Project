@@ -9,7 +9,7 @@ import { Products } from '../models/products.model';
 })
 export class ApiService {
 
-  // baseurl = 'http://127.0.0.1:8000'
+  //  baseurl = 'http://127.0.0.1:8000'
   baseurl = 'https://grocery-store-django-rest.vercel.app'
 
   httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
@@ -32,4 +32,15 @@ export class ApiService {
   deleteProduct(id: any): Observable<Products> {
     return this.http.delete(`${this.baseurl}/products/${id}`);
   }
+
+  getAllCustomers(): Observable<any>{
+    return this.http.get(this.baseurl + '/orders/',
+    {responseType: 'json',headers: this.httpHeaders})
+  }
+
+  createOrder(data: any): Observable<any>{
+    return this.http.post(this.baseurl + '/products/',data)
+  }
+
+
 }

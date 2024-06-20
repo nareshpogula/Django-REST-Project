@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from django.http import Http404
 from orders.models import Orders, Order_Details
 from rest_framework import status
-from orders.serializers import Orders_Serializer, Order_Details_Serializer
+from orders.serializers import Orders_Serializer, Order_Details_Serializer, Insert_Order_Serializer
 
 class OrdersListView(APIView):
     # authentication_classes=[BasicAuthentication]
@@ -31,7 +31,7 @@ class OrdersDetailsListView(APIView):
     # permission_classes =[IsAuthenticated]
 
     def post(self, request):
-      serializer = Order_Details_Serializer(data=request.data)
+      serializer = Insert_Order_Serializer(data=request.data)
       print(request.data, "extracted")
       if serializer.is_valid():
             serializer.save()
@@ -43,5 +43,9 @@ class OrdersDetailsListView(APIView):
         #productsall = Products.objects.
         
         ordersall = Order_Details.objects.all()#.order_by('order_id')
+        print(ordersall)
         serializer = Order_Details_Serializer(ordersall, many=True)
         return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
+    
+
+      
