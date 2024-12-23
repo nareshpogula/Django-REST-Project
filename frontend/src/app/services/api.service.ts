@@ -39,7 +39,7 @@ export class ApiService {
   }
 
   createOrder(data: any): Observable<any>{
-    return this.http.post(this.baseurl + '/products/',data)
+    return this.http.post(this.baseurl + '/orderdetails/',data)
   }
 
 

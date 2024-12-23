@@ -14,6 +14,11 @@ import { HttpClient, provideHttpClient, withFetch } from '@angular/common/http';
 import { OrdersComponent } from './components/orders/orders.component';
 import { CustomerDetailsComponent } from './components/customer-details/customer-details.component';
 import { OrderDetailsComponent } from './components/order-details/order-details.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -30,7 +35,12 @@ import { OrderDetailsComponent } from './components/order-details/order-details.
     AppRoutingModule,
     FormsModule,
     RouterOutlet,
-    CommonModule
+    CommonModule,
+    MatSlideToggleModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule
+    
   ],
   providers: [
     provideClientHydration(),
@@ -38,6 +48,7 @@ import { OrderDetailsComponent } from './components/order-details/order-details.
     importProvidersFrom(HttpClient),
               provideHttpClient(withFetch()),
               provideClientHydration(),
+              provideAnimationsAsync(),
               // provideRouter(routes),
   ],
   bootstrap: [AppComponent]
