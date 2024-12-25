@@ -32,11 +32,11 @@ class LoginView(APIView):
             'iat': datetime.datetime.utcnow()
         }
 
-        token = jwt.encode(payload, 'secret', algorithm='HS256') #.decode('utf-8')
+        token = jwt.encode(payload, 'secret', algorithm='HS256')    #.decode('utf-8')
 
         response= Response()
 
-        response.set_cookie(key='jwt', value=token,httponly=True)
+        response.set_cookie(key='jwt', value=token, httponly=True)
         response.data = {
             'jwt': token
         }
@@ -46,6 +46,7 @@ class LoginView(APIView):
 class UserView(APIView):
     def get(self,request):
         token = request.COOKIES.get('jwt')
+        print(request.COOKIES)
 
         if not token:
              raise AuthenticationFailed('Unauthenticated!')

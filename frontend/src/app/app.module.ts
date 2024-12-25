@@ -1,5 +1,5 @@
 import { importProvidersFrom, NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 // import { routes } from './app-routing.module';
 import { AppRoutingModule } from './app-routing.module';
@@ -10,10 +10,14 @@ import { ManageProductsComponent } from './components/manage-products/manage-pro
 import { provideRouter, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ApiService } from './services/api.service';
-import { HttpClient, provideHttpClient, withFetch } from '@angular/common/http';
+import { HttpClient, HTTP_INTERCEPTORS, provideHttpClient, withFetch } from '@angular/common/http';
 import { OrdersComponent } from './components/orders/orders.component';
 import { CustomerDetailsComponent } from './components/customer-details/customer-details.component';
 import { OrderDetailsComponent } from './components/order-details/order-details.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
+import { NavComponent } from './components/nav/nav.component';
+// import { AuthInterceptor } from './interceptor/auth-interceptor';
 
 @NgModule({
   declarations: [
@@ -23,12 +27,16 @@ import { OrderDetailsComponent } from './components/order-details/order-details.
     ManageProductsComponent,
     OrdersComponent,
     CustomerDetailsComponent,
-    OrderDetailsComponent
+    OrderDetailsComponent,
+    RegisterComponent,
+    LoginComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterOutlet,
     CommonModule
   ],
@@ -38,6 +46,7 @@ import { OrderDetailsComponent } from './components/order-details/order-details.
     importProvidersFrom(HttpClient),
               provideHttpClient(withFetch()),
               provideClientHydration(),
+              // {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
               // provideRouter(routes),
   ],
   bootstrap: [AppComponent]
