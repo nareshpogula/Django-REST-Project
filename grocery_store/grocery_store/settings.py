@@ -25,10 +25,15 @@ SECRET_KEY = 'django-insecure-+@35tj(wo@azdq6roo4m-*g30ef^5w+ay=@ow22@*&bh*r2=df
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app','127.0.0.1']
+ALLOWED_HOSTS = ['.vercel.app','127.0.0.1','localhost']
 
 CORS_ALLOWED_ORIGINS = [ 'http://localhost:4200', 'http://localhost:5400', 'https://grocery-store-django-rest.vercel.app','https://grocery-angular.vercel.app']
 
+#CORS_ALLOW_HEADERS = ['authorization']
+#CSRF_TRUSTED_ORIGINS = ['http://localhost:4200']
+
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
 
 # Application definition
 
@@ -42,6 +47,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'products',
     'orders',
+    'users',
     'corsheaders'
     
 ]
@@ -134,3 +140,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'users.User'
